@@ -1,16 +1,19 @@
 // import "./styles.css";
 import React, { Component } from "react";
 import Main from "./component/MainComponent";
-import './App.css'
+import './App.css';
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends React.Component {
 
   render() {
 
     return (
-      <div>
-        <Main />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Main />
+        </div>
+      </BrowserRouter>
 
     );
   }
