@@ -1,15 +1,18 @@
-import { DISHES } from '../shared/dishes';
-import { COMMENTS } from '../shared/comments';
-import { PROMOTIONS } from '../shared/promotions';
-import { LEADERS } from '../shared/leaders';
+import { createStore, combineReducers } from 'redux';
+import { Dishes } from './dishes';
+import { Comments } from './comments';
+import { Promotions } from './promotions';
+import { Leaders } from './leaders';
 
-export const initialState = {
-    dishes: DISHES,
-    comments: COMMENTS,
-    promotions: PROMOTIONS,
-    leaders: LEADERS
-};
+export const ConfigureStore = () => {
+    const store = createStore(
+        combineReducers({
+            dishes: Dishes,
+            comments: Comments,
+            promotions: Promotions,
+            leaders: Leaders
+        })
+    );
 
-export const Reducer = (state = initialState, action) => {
-    return state;
-};
+    return store;
+}
