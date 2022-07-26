@@ -1,19 +1,24 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
-
+import { baseUrl } from "../shared/baseUrl";
+import { FadeTransform, Fade, Stagger } from "react-animation-components";
 function About(props) {
 
     function RenderLeader({ leaders }) {
 
         return (
+            
             props.leaders.map((leader) => {
                 return (
                     <div style={{ display: 'flex' }}>
+                         <Stagger in>
+                            <Fade in>
+
                         <Media left href="#">
                             <Media
                                 object
-                                src={leader.image}
+                                src={baseUrl + leader.image}
                             />
                         </Media>
                         <Media body>
@@ -25,8 +30,11 @@ function About(props) {
                             <div style={{ marginLeft: 20, marginTop: -20 }}>{leader.description}</div>
                             <br />
                         </Media>
+                        </Fade>
+                        </Stagger>
                         <br /><br />
                     </div>
+             
                 )
             })
 
